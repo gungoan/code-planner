@@ -91,7 +91,7 @@ The flow is a default sequence, not a hard-coded pipeline. The GitLab synchroniz
 npx skills add gungoan/code-planner
 ```
 
-The repository remote is `gungoan/code-planner`. GitHub installation requires the repository to be pushed and accessible.
+The repository is published at `gungoan/code-planner` on GitHub.
 
 ### 4.3. List Available Skills
 
@@ -327,12 +327,12 @@ Verified in this repository:
 |---|---|
 | Official `skills-ref validate` on all 7 skills | PASS |
 | `npx skills add . --list` discovers all skills | PASS - 7 skills |
-| Individual install of `technical-decomposition` | PASS - `opencode`, `claude-code`, `codex`, `cursor`, `github-copilot` |
+| Individual install of `technical-decomposition` | PASS - local path and GitHub remote; local path verified for `opencode`, `claude-code`, `codex`, `cursor`, `github-copilot` |
 | Multi-skill install (`--skill brd-analysis technical-decomposition`) | PASS - `opencode` |
-| Full-library install of all 7 skills | PASS - `opencode`, 92 files |
+| Full-library install of all 7 skills | PASS - local path and GitHub remote, `opencode`, 92 files |
 | Installed package contains `SKILL.md`, `shared/`, `references/` | PASS |
 | `npm run sync` and `npm run validate` | PASS - 7 skills, 10 shared standards, local references |
-| GitHub remote install | NOT TESTED - remote is `gungoan/code-planner`, but no published commits were present |
+| GitHub remote install | PASS - `--list` found 7 skills; `--skill` and full-library install verified |
 | Update/remove commands | REMOVE reported success; a copied folder remained in the test environment. Update did not recognize the local copy install. Behavior depends on install mode; verify in your environment. |
 
 Official CLI documentation: [github.com/vercel-labs/skills](https://github.com/vercel-labs/skills).
@@ -352,7 +352,7 @@ npx skills add . --list
 - Installation and discovery were verified with the Vercel Skills CLI.
 - Runtime activation and output quality depend on the host agent and model.
 - No claim of universal agent compatibility beyond the Agent Skills specification and the CLI checks above.
-- The GitHub remote was not published or pushed during this review.
+- The GitHub remote was pushed and remote discovery passed; runtime activation was not tested.
 
 ## 9. Contributing
 
